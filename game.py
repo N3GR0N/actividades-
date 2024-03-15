@@ -33,7 +33,7 @@ for i in range(max_attempts):
 
     # Verificar si la letra está en la palabra secreta (agruegue la posibilidad de un error a la hora de colocar caracter vacio)
     if letter == "":
-        print("ERROR!!, no ingresaste ninguna letra.")
+        print("ERROR!!, la letra ingresada es invalida, por favor ingrese otra.")
     elif letter in secret_word:
         print("¡Bien hecho! La letra está en la palabra.")
     else:
