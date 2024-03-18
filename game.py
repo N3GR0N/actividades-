@@ -31,17 +31,19 @@ while errors < max_errors:
         print("Ya has intentado con esa letra. Intenta con otra.")
         continue
 
-    # Agregar la letra a la lista de letras adivinadas
-    guessed_letters.append(letter)
-
-    # Verificar si la letra está en la palabra secreta (agruegue la posibilidad de un error a la hora de colocar caracter vacio)
+    # Verificar si la letra está vacía
     if letter == "":
-        print("ERROR!!, la letra ingresada es invalida, por favor ingrese otra.")
-    elif letter in secret_word:
-        print("¡Bien hecho! La letra está en la palabra.")
+        print("ERROR!!, la letra ingresada es inválida, por favor ingrese otra.")
     else:
-        print("Lo siento, la letra no está en la palabra.")
-        errors = errors + 1 
+        # Agregar la letra a la lista de letras adivinadas
+        guessed_letters.append(letter)
+
+        # Verificar si la letra está en la palabra secreta y contar errores si la letra no está en la palabra
+        if letter in secret_word:
+             print("¡Bien hecho! La letra está en la palabra.")
+        else:
+            print("Lo siento, la letra no está en la palabra.")
+            errors = errors +  1
 
     # Mostrar la palabra parcialmente adivinada
     letters = []
@@ -52,7 +54,7 @@ while errors < max_errors:
             letters.append("_")
     word_displayed = "".join(letters)
     print(f"Palabra: {word_displayed}")
-
+    
     # Verificar si se ha adivinado la palabra completa
     if word_displayed == secret_word:
         print(f"¡Felicidades! Has adivinado la palabra secreta: {secret_word}")
@@ -60,3 +62,4 @@ while errors < max_errors:
 else:
     print(f"Lo siento, Has cometido {max_errors} errores y lamentablemente has perdido.")
     print(f"La palabra secreta era: {secret_word}")
+    
